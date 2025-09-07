@@ -6,7 +6,7 @@ const webhooks = require('../backend/controllers/Order/webhook')
 const connectDB = require('./config/db')
 const router = require('./routes')
 const app = express()
-app.post("/webhook", express.raw({ type: "application/json" }),webhooks)
+app.post("/webhook", express.raw({ type:"application/json" }),webhooks)
 app.use(express.json())
 app.use(cors({
     origin :process.env.FRONTEND_URL ,

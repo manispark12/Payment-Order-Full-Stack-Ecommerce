@@ -74,13 +74,13 @@ useEffect(() =>{
   <input
     type='text'
     placeholder='Search product here...'
-    className='w-full outline-none text-black'
+    className='w-full outline-none text-black  min-w-[20px] md:min-w-[30px]'
     onChange={handleSearch}
     value={search}
   />
   <button
     type='submit'
-    className='text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white'
+    className='text-lg min-w-[50px] h-8 bg-slate-600 flex items-center justify-center rounded-r-full text-white'
   >
     <GrSearch />
   </button>
@@ -92,7 +92,7 @@ useEffect(() =>{
     
                       {
                         user?._id && (
-                          <div className='text-3xl cursor-pointer relative flex justify-center px-6 my-3' onClick={()=>setMenuDisplay(preve => !preve)}>
+                          <div className='text-3xl cursor-pointer relative flex justify-center px-9 my-5' onClick={()=>setMenuDisplay(preve => !preve)}>
                             {
                               user?.profilePic ? (
                                 <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
@@ -122,11 +122,11 @@ useEffect(() =>{
     
                       {
                          user?._id && (
-                          <Link to={"/cart"} className='text-2xl relative'>
+                          <Link to={"/cart"} className='text-2xl relative mx-3 w-9'>
                               <span><FaShoppingCart/></span>
           
-                              <div className='bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3'>
-                                  <p className='text-white'>{context?.cartProductCount}</p>
+                              <div className='bg-green-100 text-white w-7 h-7 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3'>
+                                  <p className='text-black'>{context?.cartProductCount}</p>
                               </div>
                           </Link>
                           )
@@ -137,7 +137,7 @@ useEffect(() =>{
                     <div>
                       {
                         user?._id  ? (
-                          <button onClick={handleLogout} className='px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700'>Logout</button>
+                          <button onClick={handleLogout} className='px-3 py-1 rounded-full text-white bg-blue-700 hover:bg-purple-300'>Logout</button>
                         )
                         : (
                         <Link to={"/login"} className='px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700'>Login</Link>
