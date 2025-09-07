@@ -9,9 +9,12 @@ const app = express()
 app.post("/webhook", express.raw({ type:"application/json" }),webhooks)
 app.use(express.json())
 app.use(cors({
-    origin :process.env.FRONTEND_URL ,
-    credentials : true
-}))
+    origin: process.env.FRONTEND_URL, 
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+}));
+app.options("*", cors());
 
 app.use(cookieParser())
 app.use("/api", router)
